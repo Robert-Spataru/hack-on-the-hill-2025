@@ -1,1 +1,76 @@
 /* This file is intentionally left blank. */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.sentiment-table {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.graph-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 400px;
+    width: 100%;
+}
