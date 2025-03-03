@@ -1,2 +1,2 @@
 # hack-on-the-hill-2025
-ThoughtThreads is a therapy app that helps address mental health with cutting edge AI technology that analyzes a user's journal entries and plots their wellbeing across the timeframe of the journal. 
+ThoughtThreads is an innovative therapy app designed to support mental health and emotional well-being through the power of journaling and advanced AI technology. By analyzing a user's journal entries, ThoughtThreads provides personalized insights into their emotional journey, tracking patterns and plotting their well-being over time. Whether you're looking to process your thoughts, monitor your mental health, or gain a deeper understanding of your emotional trends, ThoughtThreads offers a modern, tech-driven approach to self-reflection and growth.
