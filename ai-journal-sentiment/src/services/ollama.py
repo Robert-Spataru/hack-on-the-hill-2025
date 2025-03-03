@@ -34,7 +34,7 @@ EXAMPLE_PROMPT = """Analyze this document, extracting all dates mentioned and th
 
 MODEL = "qwen2.5:1.5b"
 
-def analyze_sentiment(prompt=EXAMPLE_PROMPT, model=MODEL, document=""):
+def analyze_sentiment(prompt, model, document):
     """
     Send a document to Ollama for sentiment analysis.
     

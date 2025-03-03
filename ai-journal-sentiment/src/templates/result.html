@@ -30,46 +30,61 @@
         <!-- Canvas element for the chart -->
         <canvas id="sentimentChart"></canvas>
         <script>
-            // Extract data from analysis.data for the chart
+            // Get the entire analysis object as JavaScript
+            const analysisData = {{ analysis | tojson | safe }};
+            console.log('Analysis data:', analysisData);
+            
+            // Extract data for the chart
             const dates = [];
             const sentimentScores = [];
-            {% for item in analysis.data %}
-                dates.push('{{ item.date }}');
-                sentimentScores.push({{ item.sentiment_score }});
-            {% endfor %}
-
-            // Create the line chart
-            const ctx = document.getElementById('sentimentChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: dates,
-                    datasets: [{
-                        label: 'Sentiment Score',
-                        data: sentimentScores,
-                        borderColor: 'blue',
-                        backgroundColor: 'rgba(0, 0, 255, 0.1)',
-                        fill: true,
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Sentiment Score'
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Date'
+            
+            // Handle data in JavaScript instead of Jinja
+            if (analysisData && analysisData.data && Array.isArray(analysisData.data)) {
+                analysisData.data.forEach(item => {
+                    if (item.date && item.sentiment_score !== undefined) {
+                        dates.push(item.date);
+                        sentimentScores.push(item.sentiment_score);
+                    }
+                });
+            }
+            
+            // Create chart only if we have data
+            if (dates.length > 0) {
+                const ctx = document.getElementById('sentimentChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: dates,
+                        datasets: [{
+                            label: 'Sentiment Score',
+                            data: sentimentScores,
+                            borderColor: 'blue',
+                            backgroundColor: 'rgba(0, 0, 255, 0.1)',
+                            fill: true,
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Sentiment Score'
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Date'
+                                }
                             }
                         }
                     }
-                }
-            });
+                });
+            } else {
+                document.getElementById('sentimentChart').innerHTML = 
+                    '<p>No chart data available</p>';
+            }
         </script>
     {% else %}
         <p>No analysis data available.</p>
